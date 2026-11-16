@@ -1,0 +1,14 @@
+---
+layout: layouts/base.njk
+---
+<article class="wrap page">
+  <header class="page-header">
+    {% if label %}<p class="label">{{ label }}</p>{% endif %}
+    <h1>{{ title }}</h1>
+    {% if description %}<p class="page-deck">{{ description }}</p>{% endif %}
+  </header>
+
+  <div class="page-body prose">
+    {{ content | safe }}
+  </div>
+</article>

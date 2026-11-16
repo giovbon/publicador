@@ -1,0 +1,23 @@
+---
+layout: layouts/base.njk
+pagination:
+  data: collections.tagList
+  size: 1
+  alias: tag
+permalink: "/tags/{{ tag.slug }}/"
+eleventyComputed:
+  title: "Tag: {{ tag.name }}"
+  description: "Textos marcados com {{ tag.name }}."
+---
+<article class="wrap page">
+  <header class="page-header">
+    <p class="label">Tag</p>
+    <h1>{{ tag.name }}</h1>
+    <p class="page-deck">{{ tag.count }} {% if tag.count == 1 %}texto{% else %}textos{% endif %} com esta tag.</p>
+  </header>
+
+  {% set posts = collections.posts | postsByTag(tag.name) %}
+  {% include "partials/post-list.njk" %}
+
+  <p class="page-back"><a href="/tags/">← todas as tags</a></p>
+</article>

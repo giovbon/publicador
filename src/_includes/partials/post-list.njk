@@ -1,0 +1,23 @@
+<ol class="post-list">
+  {% for post in posts %}
+    <li class="post-item">
+      <a class="post-item-link" href="{{ post.url }}">
+        <time class="post-item-date" datetime="{{ post.date | isoDate }}">{{ post.date | shortDate }}</time>
+        <span class="post-item-body">
+          <span class="post-item-title">{{ post.data.title }}</span>
+          {% if post.data.description %}
+            <span class="post-item-desc">{{ post.data.description }}</span>
+          {% endif %}
+          {% if post.data.tags and post.data.tags.length %}
+            <span class="tag-list" aria-hidden="true">
+              {% for tag in post.data.tags %}
+                {% if tag != "posts" %}<span>{{ tag }}</span>{% endif %}
+              {% endfor %}
+            </span>
+          {% endif %}
+        </span>
+        <span class="post-item-arrow" aria-hidden="true">→</span>
+      </a>
+    </li>
+  {% endfor %}
+</ol>

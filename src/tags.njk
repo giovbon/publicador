@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+title: "Tags"
+description: "Assuntos que aparecem por aqui."
+label: "Tags"
+permalink: /tags/
+---
+<article class="wrap page">
+  <header class="page-header">
+    <p class="label">Tags</p>
+    <h1>Assuntos</h1>
+    <p class="page-deck">Tudo o que já apareceu no blog, por tema.</p>
+  </header>
+
+  <ul class="tag-index">
+    {% for tag in collections.tagList %}
+      <li>
+        <a href="/tags/{{ tag.slug }}/">
+          <span>{{ tag.name }}</span>
+          <span class="count">{{ tag.count }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</article>

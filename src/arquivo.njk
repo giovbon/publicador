@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+title: "Arquivo"
+description: "Todos os textos, organizados por ano."
+label: "Arquivo"
+permalink: /arquivo/
+---
+<article class="wrap page">
+  <header class="page-header">
+    <p class="label">Arquivo</p>
+    <h1>Tudo o que já escrevi</h1>
+    <p class="page-deck">Textos organizados por ano, do mais recente ao mais antigo.</p>
+  </header>
+
+  {% for group in collections.postsByYear %}
+    <section class="archive-year" aria-labelledby="ano-{{ group.year }}">
+      <h2 id="ano-{{ group.year }}">{{ group.year }}</h2>
+      <ol class="archive-list">
+        {% for post in group.posts %}
+          <li>
+            <time datetime="{{ post.date | isoDate }}">{{ post.date | shortDate }}</time>
+            <a href="{{ post.url }}">{{ post.data.title }}</a>
+          </li>
+        {% endfor %}
+      </ol>
+    </section>
+  {% endfor %}
+</article>

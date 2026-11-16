@@ -1,0 +1,24 @@
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-col">
+      <p class="footer-brand">{{ site.title }}</p>
+      <p class="footer-note">
+        Textos escritos por {{ site.author }}. Sem rastreadores, sem newsletter,
+        sem pressa.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <p class="label">Em outro lugar</p>
+      {% for item in site.social %}
+        <a href="{{ item.url }}"{% if item.url.startsWith("http") %} rel="me noopener" target="_blank"{% endif %}>{{ item.label }}</a>
+      {% endfor %}
+    </div>
+
+    <div class="footer-col">
+      <p class="label">Contato</p>
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      <p class="footer-note">© {{ site.buildYear }} {{ site.author }}</p>
+    </div>
+  </div>
+</footer>

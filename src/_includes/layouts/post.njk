@@ -1,0 +1,66 @@
+---
+layout: layouts/base.njk
+---
+{% set tocHtml = content | toc %}
+<article class="post">
+  <header class="wrap post-header">
+    <div class="post-meta">
+      <time datetime="{{ date | isoDate }}">{{ date | longDate }}</time>
+      <span class="sep" aria-hidden="true">/</span>
+      <span>{{ content | readingTime }}</span>
+      {% if updated %}
+        <span class="sep" aria-hidden="true">/</span>
+        <span>Atualizado em {{ updated | longDate }}</span>
+      {% endif %}
+    </div>
+
+    <h1 class="post-title">{{ title }}</h1>
+    {% if description %}<p class="post-deck">{{ description }}</p>{% endif %}
+  </header>
+
+  <div class="wrap post-layout">
+    <div class="post-body">
+      {{ content | safe }}
+
+      <div class="post-end" aria-hidden="true" data-pagefind-ignore>⁂</div>
+
+      <footer class="post-footer" data-pagefind-ignore>
+        {% if tags and tags.length %}
+          <ul class="tag-list" aria-label="Tags do texto">
+            {% for tag in tags %}
+              {% if tag != "posts" %}
+                <li><a href="/tags/{{ tag | slugify }}/">{{ tag }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        {% endif %}
+
+        {% set prev = collections.posts | getPreviousCollectionItem %}
+        {% set next = collections.posts | getNextCollectionItem %}
+        {% if prev or next %}
+          <nav class="post-nav" aria-label="Navegação entre textos">
+            {% if prev %}
+              <a class="post-nav-prev" href="{{ prev.url }}">
+                <span class="label">Mais recente</span>
+                <span class="post-nav-title">{{ prev.data.title }}</span>
+              </a>
+            {% endif %}
+            {% if next %}
+              <a class="post-nav-next" href="{{ next.url }}">
+                <span class="label">Mais antigo</span>
+                <span class="post-nav-title">{{ next.data.title }}</span>
+              </a>
+            {% endif %}
+          </nav>
+        {% endif %}
+      </footer>
+    </div>
+
+    {% if tocHtml %}
+      <aside class="post-aside" data-pagefind-ignore>
+        <p class="label">Neste texto</p>
+        {{ tocHtml | safe }}
+      </aside>
+    {% endif %}
+  </div>
+</article>
