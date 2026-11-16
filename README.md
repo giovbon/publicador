@@ -16,7 +16,16 @@ npm install
 npm run dev
 ```
 
-O site fica em `http://localhost:8080`. O build de produção é:
+O site fica em `http://localhost:8080`. Se houver algo preso na porta, o
+script `run.sh` encerra o processo antigo antes de subir:
+
+```bash
+./run.sh              # dev server em http://localhost:8080
+PORT=8081 ./run.sh    # outra porta
+./run.sh build        # build de produção
+```
+
+O build de produção é:
 
 ```bash
 npm run build
@@ -130,10 +139,19 @@ self-hosted: Newsreader para texto e IBM Plex Mono para rótulos e código.
 Para regerar a imagem de Open Graph:
 
 ```bash
-node scripts/make-og.mjs
+npm run og
 ```
 
 O favicon é um SVG em `public/favicon.svg`.
+
+## Selo Made by Humans
+
+Cada post termina com o selo `Made by Humans` — o PNG branco fica em
+`src/assets/img/made-by-humans-white.png` e o bloco está em
+`src/_includes/partials/human-made.njk`, incluído pelo layout
+`src/_includes/layouts/post.njk`. Os estilos do selo estão no bloco
+"Post" de `main.css`. A imagem usa `eleventy:ignore` para não passar pelo
+`eleventy-img`, preservando a transparência.
 
 ## Publicando no Cloudflare Pages
 

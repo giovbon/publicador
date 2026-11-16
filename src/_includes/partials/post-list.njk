@@ -3,10 +3,10 @@
     <li class="post-item">
       <a class="post-item-link" href="{{ post.url }}">
         <time class="post-item-date" datetime="{{ post.date | isoDate }}">{{ post.date | shortDate }}</time>
-        <span class="post-item-body">
-          <span class="post-item-title">{{ post.data.title }}</span>
+        <div class="post-item-body">
+          <h3 class="post-item-title">{{ post.data.title }}</h3>
           {% if post.data.description %}
-            <span class="post-item-desc">{{ post.data.description }}</span>
+            <p class="post-item-desc">{{ post.data.description }}</p>
           {% endif %}
           {% if post.data.tags and post.data.tags.length %}
             <span class="tag-list" aria-hidden="true">
@@ -15,7 +15,7 @@
               {% endfor %}
             </span>
           {% endif %}
-        </span>
+        </div>
         <span class="post-item-arrow" aria-hidden="true">→</span>
       </a>
     </li>

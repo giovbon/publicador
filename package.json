@@ -5,10 +5,12 @@
   "type": "module",
   "description": "Blog pessoal sobre programação, feito com Eleventy.",
   "scripts": {
+    "start": "bash run.sh",
     "dev": "eleventy --serve",
     "build": "eleventy && pagefind --site _site",
     "new": "node scripts/new-post.mjs",
-    "check": "node scripts/check-content.mjs"
+    "check": "node scripts/check-content.mjs",
+    "og": "node scripts/make-og.mjs"
   },
   "engines": {
     "node": ">=20"

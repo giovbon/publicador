@@ -837,6 +837,39 @@ h3:hover .heading-anchor,
   text-align: center;
 }
 
+/* Selo Made by Humans */
+
+.post-body > .human-made {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 0 0 2.75rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #111113;
+}
+
+.human-made-badge {
+  flex: none;
+  width: 5.5rem;
+  height: auto;
+  opacity: 0.94;
+}
+
+.human-made-text .label {
+  color: #a49d90;
+}
+
+.human-made-text p + p {
+  max-width: 46ch;
+  margin-top: 0.35rem;
+  color: #e9e3d7;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
 .post-footer {
   display: grid;
   gap: 1.5rem;
@@ -1148,6 +1181,15 @@ h3:hover .heading-anchor,
     grid-template-columns: 1fr;
   }
 
+  .post-body > .human-made {
+    gap: 0.9rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .human-made-badge {
+    width: 4.25rem;
+  }
+
   .post-nav-next {
     text-align: left;
   }
@@ -1195,6 +1237,7 @@ h3:hover .heading-anchor,
   .skip-link,
   .theme-toggle,
   .post-nav,
+  .human-made,
   .post-end {
     display: none !important;
   }
