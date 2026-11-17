@@ -163,6 +163,8 @@ Cada post termina com o selo `Made by Humans` — o PNG branco fica em
    - **Build command:** `npm run build`
    - **Build output directory:** `_site`
    - **Environment variable:** `NODE_VERSION=22`
+   - Comando de **implantação**: `npx wrangler deploy --assets ./_site --compatibility-date 2026-11-16`
+   - Comando de **preview**: `npx wrangler preview --assets ./_site --compatibility-date 2026-11-16`
 5. Depois do primeiro deploy, adicione o domínio em **Custom domains**.
 
 O arquivo `public/_headers` já configura cache para fontes e cabeçalhos
