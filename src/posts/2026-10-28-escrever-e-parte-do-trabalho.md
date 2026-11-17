@@ -1,5 +1,5 @@
 ---
-title: "Escrever é parte do trabalho"
+title: "Escrever é parte do trabalhoz"
 description: "Anotar o que se aprende não é vaidade. É uma forma de pensar e de deixar rastro."
 date: 2026-10-28
 tags: ["escrita", "carreira"]
